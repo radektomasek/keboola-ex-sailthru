@@ -1,0 +1,33 @@
+{
+  "name": "keboola-ex-sailthru",
+  "version": "0.0.1",
+  "description": "A Sailthru extractor for Keboola Connection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Sailthru",
+    "Keboola"
+  ],
+  "author": "Radek Tomasek <radek.tomasek@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-0": "^6.5.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.13.0",
+    "commander": "^2.9.0",
+    "fast-csv": "^2.2.0",
+    "is-there": "^4.3.3",
+    "jsonfile": "^2.4.0",
+    "lodash": "^4.16.1",
+    "moment": "^2.15.1",
+    "nconf": "^0.8.4",
+    "sailthru-client": "^2.1.0"
+  }
+}
