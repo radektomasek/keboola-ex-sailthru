@@ -6,7 +6,11 @@ import nconf from 'nconf';
 import moment from 'moment';
 import isThere from 'is-there';
 import jsonfile from 'jsonfile';
-import { isUndefined, isArray } from 'lodash';
+import {
+  isEmpty,
+  isArray,
+  isUndefined
+} from 'lodash';
 import {
   EVENT_ERROR,
   EVENT_FINISH,
@@ -53,8 +57,12 @@ export function parseConfiguration(configObject) {
       : CONVERT_EPOCH_TO_DATE;
     // Another important step is to set the date range properly.
     const maximalDate = moment.utc().subtract(1, "days").format(DEFAULT_DATE_MASK);
-    const startDate = configObject.get('parameters:startDate') || DEFAULT_START_DATE;
-    const endDate = configObject.get('parameters:endDate') || maximalDate;
+    const startDate = isUndefined(configObject.get('parameters:startDate')) || isEmpty(configObject.get('parameters:startDate'))
+      ? DEFAULT_START_DATE
+      : configObject.get('parameters:startDate');
+    const endDate = isUndefined(configObject.get('parameters:endDate')) || isEmpty(configObject.get('parameters:endDate'))
+      ? maximalDate
+      : configObject.get('parameters:endDate');
     // Verify whether the format of the startDate and endDate is correct.
     if (moment(startDate)._f !== DEFAULT_DATE_MASK) {
       reject(`Invalid date mask set for parameter 'startDate'. Please set the value to ${DEFAULT_DATE_MASK}`);

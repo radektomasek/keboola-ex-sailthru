@@ -1,0 +1,48 @@
+{
+  "title": "Parameters",
+  "type": "object",
+  "required": [
+    "#apiKey",
+    "#apiSecret",
+    "startDate",
+    "endDate",
+    "convertTimestampToDate"
+  ],
+  "properties": {
+    "#apiKey": {
+      "title": "Sailthru API Key",
+      "type": "string",
+      "format": "password",
+      "minLength": 1,
+      "default": ""
+    },
+    "#apiSecret": {
+      "title": "Sailthru API Secret",
+      "type": "string",
+      "format": "password",
+      "minLength": 1,
+      "default": ""
+    },
+    "startDate": {
+      "title": "Start Date (YYYY-MM-DD)",
+      "type": "string",
+      "minLength": 1,
+      "default": "2016-01-01"
+    },
+    "endDate": {
+      "title": "End Date (YYYY-MM-DD), leave empty for keeping default: today() - 1",
+      "type": "string",
+      "minLength": 1,
+      "default": ""
+    },
+    "convertTimestampToDate": {
+      "title": "Convert timestamps to dates",
+      "type": "boolean",
+      "enum": [
+        false,
+        true
+      ],
+      "default": true
+    }
+  }
+}
